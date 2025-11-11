@@ -222,9 +222,9 @@
 
     <label>Anilox</label>
     <div class="anilox-group">
-      <button class="anilox-btn selected" data-value="1/2">1/2</button>
-      <button class="anilox-btn" data-value="3/5">3/5</button>
-      <button class="anilox-btn" data-value="4/5">4/5</button>
+      <button class="anilox-btn selected" data-value="1.2">1.2</button>
+      <button class="anilox-btn" data-value="3.5">3.5</button>
+      <button class="anilox-btn" data-value="4.5">4.5</button>
       <button class="anilox-btn" data-value="5">5</button>
       <button class="anilox-btn" data-value="6">6</button>
       <button class="anilox-btn" data-value="9">9</button>
@@ -234,9 +234,11 @@
 
     <label>Grad acoperire</label>
     <div class="acoperire-group">
-      <button class="acoperire-btn selected" data-value="Mica">Mică</button>
-      <button class="acoperire-btn" data-value="Medie">Medie</button>
-      <button class="acoperire-btn" data-value="Mare">Mare</button>
+      <button class="acoperire-btn selected" data-value="10%">10%</button>
+      <button class="acoperire-btn" data-value="25%">25%</button>
+      <button class="acoperire-btn" data-value="50%">50%</button>
+      <button class="acoperire-btn" data-value="75%">75%</button>
+      <button class="acoperire-btn" data-value="100%">100%</button>
     </div>
 
     <div class="output placeholder" id="rezultat">Introduceți date pentru calculul consumului</div>
@@ -245,24 +247,24 @@
 
   <script>
     const lookup = {
-      "1/2": { "Mica": 0.5, "Medie": 0.9, "Mare": 1.5 },
-      "3/5": { "Mica": 0.7, "Medie": 1.2, "Mare": 1.9 },
-      "4/5": { "Mica": 0.8, "Medie": 1.3, "Mare": 2.1 },
-      "5":     { "Mica": 0.9, "Medie": 1.5, "Mare": 2.4 },
-      "6":     { "Mica": 1.1, "Medie": 1.8, "Mare": 2.9 },
-      "9":     { "Mica": 1.4, "Medie": 2.2, "Mare": 3.6 },
-      "12":    { "Mica": 1.8, "Medie": 2.7, "Mare": 4.2 },
-      "14":    { "Mica": 2.0, "Medie": 3.0, "Mare": 4.8 }
+      "1.2": { "10%": 0.03, "25%": 0.08, "50%": 0.15, "75%": 0.23, "100%": 0.30 },
+      "3.5": { "10%": 0.09, "25%": 0.22, "50%": 0.44, "75%": 0.66, "100%": 0.88 },
+      "4.5": { "10%": 0.11, "25%": 0.28, "50%": 0.56, "75%": 0.84, "100%": 1.13 },
+      "5":   { "10%": 0.13, "25%": 0.31, "50%": 0.63, "75%": 0.94, "100%": 1.25 },
+      "6":   { "10%": 0.15, "25%": 0.38, "50%": 0.75, "75%": 1.13, "100%": 1.50 },
+      "9":   { "10%": 0.23, "25%": 0.56, "50%": 1.13, "75%": 1.69, "100%": 2.25 },
+      "12":  { "10%": 0.30, "25%": 0.75, "50%": 1.50, "75%": 2.25, "100%": 3.00 },
+      "14":  { "10%": 0.35, "25%": 0.88, "50%": 1.75, "75%": 2.63, "100%": 3.50 }
     };
 
     function getSelectedAnilox() {
       const selected = document.querySelector('.anilox-btn.selected');
-      return selected ? selected.getAttribute('data-value') : '1/2';
+      return selected ? selected.getAttribute('data-value') : '1.2';
     }
 
     function getSelectedAcoperire() {
       const selected = document.querySelector('.acoperire-btn.selected');
-      return selected ? selected.getAttribute('data-value') : 'Medie';
+      return selected ? selected.getAttribute('data-value') : '50%';
     }
 
     function calculeaza() {
